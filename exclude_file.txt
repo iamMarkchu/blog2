@@ -1,7 +1,7 @@
 bootstrap/cache/*
 node_modules
-storage/app
-storage/framework
-storage/logs
+storage/app/*
+storage/framework/*
+storage/logs/*
 vendor
 .git
