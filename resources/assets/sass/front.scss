@@ -1,0 +1,116 @@
+@import "app.scss";
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+html, body {
+    height: 100%;
+    font-size: 14px;
+    color: #525252;
+    font-family: NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,"Microsoft Yahei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+    background: #f0f2f5;
+    position: relative;
+}
+a{
+    color: #676464
+}
+.nav-blog{
+    background-color: #fff;
+}
+/* search */
+.search{
+    position: relative;
+}
+.search-block{
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+}
+.home-recommand-block{
+
+}
+.home-recommand-block>.panel-heading{
+    padding: 0;
+}
+.home-recommand-block>.panel-body{
+    height: 66px;
+    padding: 0 10px;
+}
+.home-recommand-block>.panel-body>h3{
+    font-size: 1em;
+}
+.home-recommand-block>.panel-body a{
+    font-size: 1.2em;
+    color: #676464
+}
+.tag-panel{
+
+}
+.tag-panel a{
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.aside-panel{
+
+}
+.aside-panel .panel-heading{
+    background-color: #fff;
+}
+.article-panel .panel-heading{
+    background-color: #fff;
+}
+.my-markdown-editor h1.panel-title{
+    font-size:2.5em;
+    margin: 1.1em auto 1em;
+}
+.my-markdown-editor img{
+    max-width:100%;
+}
+.my-markdown-editor pre{
+    border:none;
+    background-color:#fff;
+    padding: 9.5px 0;
+}
+
+.my-markdown-editor h2{
+    padding-bottom: 0.3em;
+    font-size: 1.8em;
+    border-bottom: 1px solid #eee
+}
+.my-markdown-editor h3{
+    font-size: 1.2em;
+    border: none;
+    padding-bottom: 0.15em;
+}
+.my-markdown-editor blockquote{
+    padding: 5px 7px;
+    border: 1px solid #e0e0e0;
+    border-left: 4px solid #2ab27b;
+}
+.my-category-list{
+    padding: 0;
+}
+.my-category-list .list-group{
+    margin-bottom: 0;
+}
+.my-category-list .list-group .list-group-item:first-child{
+    border-top: none;
+}
+.my-category-list .list-group .list-group-item{
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+}
+#my-menu {padding-top:5px; padding-left:5px;}
+#my-menu .active{
+    color: #2ab27b;
+    background-color: #efefef;
+}
+#my-menu ul>li{
+    font-size: 0.8em;
+    padding-left: 10px;
+}

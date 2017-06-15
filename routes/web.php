@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+//back
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
    Route::get('/', function(){
       return view('admin/home');
@@ -28,3 +25,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//front
+Route::get('/', 'PageController@home');
+Route::get('article/{id}.html', 'PageController@article')->name('article');
