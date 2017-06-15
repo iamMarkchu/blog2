@@ -1,1 +1,4 @@
-exclude_file.txt
+bootstrap/cache/*
+node_modules
+storage/*
+vendor
