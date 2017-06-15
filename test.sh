@@ -1,0 +1,1 @@
+rsync -avz --exclude-from=./exclude_file.txt ./  mark@aliyun01:/app/site/blog2.mcgoldfish.com/
