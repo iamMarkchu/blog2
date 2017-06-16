@@ -13,19 +13,20 @@
 
 //back
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
-   Route::get('/', function(){
-      return view('admin/home');
-   });
-   Route::resource('category', 'CategoryController');
-   Route::resource('tag', 'TagController');
-   Route::resource('article', 'ArticleController');
-   Route::put('article/{id}/status', 'ArticleController@status');
+    Route::get('/', function(){
+        return view('admin/home');
+    });
+    Route::resource('category', 'CategoryController');
+    Route::resource('tag', 'TagController');
+    Route::resource('article', 'ArticleController');
+    Route::put('article/{id}/status', 'ArticleController@status');
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 //front
 Route::get('/', 'PageController@home');
 Route::get('article/{id}.html', 'PageController@article')->name('article');
+Route::get('category/{id}.html', 'PageController@category')->name('category');
+Route::get('tag/{id}.html', 'PageController@tag')->name('tag');

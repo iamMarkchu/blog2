@@ -7,9 +7,15 @@ use App\Article;
 use App\Category;
 use App\Tag;
 use Parsedown;
+use Illuminate\Support\Facades\View;
 
 class PageController extends Controller
 {
+    public function __construct()
+    {
+        $categories = Category::orderBy('display_order')->limit(5)->get();
+        View::share('categories', $categories);
+    }
     public function home()
     {
         //$categories = Category::;
@@ -48,5 +54,40 @@ class PageController extends Controller
         $data['article'] = $article;
         $data['headers'] = $headers;
         return view('article', $data);
+    }
+    public function category($id)
+    {
+        $category = Category::find($id);
+        $articles  = Article::where([
+                                ['status', 'active'],
+                                ['category_id', $id]
+                            ])
+                            ->orderBy('display_order')
+                            ->get();
+        $tag_list = [];
+        foreach ($articles as $article) {
+            foreach ($article->tags as $tag) {
+                if(!isset($tag_list[$tag->id]))
+                    $tag_list[$tag->id] = $tag;
+            }
+        }
+        $data['category'] = $category;
+        $data['articles'] = $articles;
+        $data['related_tags'] = $tag_list;
+        return view('category', $data);
+    }
+    public function tag($id)
+    {
+        $tag = Tag::find($id);
+        $articles = $tag->articles()->get();
+        $category_list = [];
+        foreach ($articles as $article) {
+            if(!isset($category_list[$article->category_id]))
+                $category_list[] = $article->category;
+        }
+        $data['tag'] = $tag;
+        $data['articles'] = $articles;
+        $data['related_categories'] = $category_list;
+        return view('tag', $data);
     }
 }

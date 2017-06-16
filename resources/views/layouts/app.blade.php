@@ -35,9 +35,9 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                      <ul class="nav navbar-nav">
-                        {{-- @foreach($categories as $category)
-                            <li><a href="">{{ $category->category_name }}</a></li>
-                        @endforeach --}}
+                        @foreach($categories as $category)
+                            <li><a href="{{ route('category', ['id' => $category->id ])}}">{{ $category->category_name }}</a></li>
+                        @endforeach
                       </ul>
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
