@@ -26,7 +26,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //front
-Route::get('/', 'PageController@home');
-Route::get('article/{id}.html', 'PageController@article')->name('article');
-Route::get('category/{id}.html', 'PageController@category')->name('category');
-Route::get('tag/{id}.html', 'PageController@tag')->name('tag');
+Route::group(['middleware' => 'tracking'], function(){
+    Route::get('/', 'PageController@home');
+    Route::get('article/{id}.html', 'PageController@article')->name('article');
+    Route::get('category/{id}.html', 'PageController@category')->name('category');
+    Route::get('tag/{id}.html', 'PageController@tag')->name('tag');
+});
