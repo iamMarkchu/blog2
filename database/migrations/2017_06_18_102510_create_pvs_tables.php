@@ -16,10 +16,10 @@ class CreatePvsTables extends Migration
         Schema::create('pvs', function (Blueprint $table) {
             $table->increments('id');
             //$table->string('session_id');
-            $table->string('ip', 15);
+            $table->string('ip', 15)->nullable();
             $table->dateTime('visit_time');
-            $table->text('user_agent');
-            $table->text('referer');
+            $table->text('user_agent')->nullable();
+            $table->text('referer')->nullable();
             $table->text('request_uri');
         });
     }
