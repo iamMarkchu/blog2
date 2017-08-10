@@ -4,8 +4,10 @@
             <div class="panel-heading">
                 <h3 class="panel-title">文章</h3>
             </div>
-            <div class="panel-body">
+            <div class="panel-body query-form">
                 <router-link class="btn btn-success" to="/article/add">添加文章</router-link>
+            </div>
+            <div class="panel-body">
                 <div class="table-responsive">
                     <table class="table table-hover table-condensed">
                     <thead>
