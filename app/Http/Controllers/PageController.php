@@ -20,7 +20,7 @@ class PageController extends Controller
     {
         //$categories = Category::;
         $tags = Tag::orderBy('display_order', 'desc')->limit(20)->get();
-        $articles = Article::with(['tags', 'category'])->where('status', 'active')->orderBy('click_count', 'desc')->limit(20)->get();
+        $articles = Article::with(['tags', 'category'])->where('status', 'active')->orderBy('click_count', 'desc')->limit(12)->get();
         $data['articles'] = $articles;
         $data['tags'] = $tags;
         //$data['categorys'] = $categories;

@@ -15,11 +15,11 @@
                                 <th>ID</th>
                                 <th>TITLE</th>
                                 <th>STATUS</th>
-                                <th>ORDER</th>
                                 <th>SOURCE</th>
                                 <th>CATEGORY</th>
                                 <th>TAGS</th>
                                 <th>CLICKS/VOTES</th>
+                                <th>ORDER</th>
                                 <th>CREATED_AT/UPDATED_AT</th>
                                 <th>OPERATION</th>
                             </tr>
@@ -39,8 +39,7 @@
                                     <span class="label label-danger">{{ item.status }}</span> 
                                 </td>
                                 <!-- status end -->
-                                <td>{{ item.display_order }}</td>
-                                <td>{{ item.source }}</td>
+                                <td>{{ item.source | format_source }}</td>
                                 <!-- category name start-->
                                 <td v-if="item.category"><span>{{ item.category.category_name }}</span></td>
                                 <td v-else><span class="label label-danger">无类别</span></td>
@@ -54,6 +53,7 @@
                                 <td v-else><span class="label label-danger">无标签</span></td>
                                 <!-- tags end -->
                                 <td>{{ item.click_count }}/{{ item.vote_count }}</td>
+                                <td>{{ item.display_order }}</td>
                                 <td>{{ item.created_at | format_date }}/{{ item.updated_at | format_date}}</td>
                                 <td>
                                     <router-link :to="{name: 'article-edit', params: {id: item.id}}">编辑</router-link>
@@ -143,6 +143,17 @@
             format_date: function(date){
                 let dateObj = new Date(date)
                 return dateObj.getFullYear() + '-' + (dateObj.getMonth() +1) + '-' + (dateObj.getDate())
+            },
+            format_source: function(source){
+                let str = '未知'
+                if(source == 'origin')
+                {
+                    str = '原创'
+                }else if(source == 'reprint')
+                {
+                    str = '转载'
+                }
+                return str
             }
         },
         components: {

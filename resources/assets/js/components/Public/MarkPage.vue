@@ -1,5 +1,6 @@
 <template>
     <nav aria-label="Page navigation">
+      <p class="page_total">共 {{ total }} 条</p>
       <ul class="pagination pagination-sm">
         <li>
           <a href="javascript:;" aria-label="Previous" @click="current_change(--page)">
@@ -20,6 +21,15 @@
 <style scoped>
   nav {
     float: right;
+  }
+  .page_total {
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    bottom: 8px;
+  }
+  .pagination>li {
+    display: inline-block;
   }
 </style>
 <script>
