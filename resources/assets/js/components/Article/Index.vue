@@ -5,7 +5,14 @@
                 <h3 class="panel-title">文章</h3>
             </div>
             <div class="panel-body query-form">
-                <router-link class="btn btn-success" to="/article/add">添加文章</router-link>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" v-model="query.title">
+                  </div>
+                  <a href="javascript:;" class="btn btn-primary" @click="get_article()">搜索</a>
+                  <router-link class="btn btn-success" to="/article/add">添加文章</router-link>
+                </form>   
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -89,18 +96,19 @@
                 },
                 current_key: 0,
                 articles: [],
-                errors: {
-
-                },
+                errors: {},
                 current_page: 1,
                 total: 0,
                 size: 10,
+                query: {
+                    title: ''
+                }
             }
         },
         methods: {
             get_article: function(){
                 var that = this;
-                var url = '/article?page='+ this.current_page+'&limit='+this.size
+                var url = '/article?title='+this.query.title+'&page='+ this.current_page+'&limit='+this.size
                 window.axios.get(url)
                 .then(function (response){
                     that.articles = response.data.data
