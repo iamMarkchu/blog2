@@ -12,7 +12,7 @@
                   </div>
                   <a href="javascript:;" class="btn btn-primary" @click="get_article()">搜索</a>
                   <router-link class="btn btn-success" to="/article/add">添加文章</router-link>
-                </form>   
+                </form>
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -37,13 +37,13 @@
                                 <td>{{ item.title }}</td>
                                 <!-- status start -->
                                 <td v-if="item.status == 'active'">
-                                    <span class="label label-success">{{ item.status }}</span> 
+                                    <span class="label label-success">{{ item.status }}</span>
                                 </td>
                                 <td v-else-if="item.status == 'republish'">
-                                    <span class="label label-info">{{ item.status }}</span> 
+                                    <span class="label label-info">{{ item.status }}</span>
                                 </td>
                                 <td v-else-if="item.status == 'deleted'">
-                                    <span class="label label-danger">{{ item.status }}</span> 
+                                    <span class="label label-danger">{{ item.status }}</span>
                                 </td>
                                 <!-- status end -->
                                 <td>{{ item.source | format_source }}</td>
