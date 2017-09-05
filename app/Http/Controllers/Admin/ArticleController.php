@@ -17,7 +17,13 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        return Article::with('category', 'tags')->paginate($request->input('limit'));
+        $title = $request->input('title');
+        $article = Article::with('category', 'tags');
+        if(!empty($title))
+        {
+            $article = $article->where('title', 'like', '%'.$title.'%');
+        }
+        return $article->orderBy('created_at', 'desc')->paginate($request->input('limit'));
     }
 
     /**

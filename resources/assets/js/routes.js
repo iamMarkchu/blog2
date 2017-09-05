@@ -17,4 +17,9 @@ export default
 		name: 'article-edit',
 		component: require('./components/Article/Edit.vue')	
 	},
+
+	{
+		path: '/user',
+		component: require('./components/User/Index.vue')
+	}
 ];
