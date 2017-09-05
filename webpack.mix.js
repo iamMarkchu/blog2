@@ -11,10 +11,6 @@ const { mix } = require('laravel-mix');
  |
  */
 mix.js('resources/assets/js/app.js', 'public/js')
-    .js('resources/assets/js/front.js', 'public/js')
+    .js('resources/assets/js/front.js', 'public/js').veison()
 mix.sass('resources/assets/sass/app.scss', 'public/css')
-    .sass('resources/assets/sass/front.scss', 'public/css')
-
-if (mix.inProduction()) {
-    mix.veison()
-}
+    .sass('resources/assets/sass/front.scss', 'public/css').veison()
